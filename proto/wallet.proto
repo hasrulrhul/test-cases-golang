@@ -1,0 +1,23 @@
+syntax="proto3";
+
+option go_package = "github.com/hasrulrhul/test-cases";
+
+service WalletServices {
+  rpc Deposit(Wallet) returns(Wallet){};
+  rpc Details(WalletId) returns(Detail){};
+}
+
+message Empty {}
+
+message WalletId {
+  int64 wallet_id = 1;
+}
+
+message Wallet {
+  int64 wallet_id = 1;
+  float amount = 2;
+}
+
+message Detail {
+  repeated Wallet list = 1;
+}
